@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>List Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <h1>List Data</h1>
+    <hr>
+    <!-- <button (click)="onSave(1)"> Tambah </button> -->
+    <p>
+        <a [routerLink]="['/adddata']" class="btn btn-primary">Tambah</a>
+    </p>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>JUDUL</th>
+            <th>FOTO</th>
+            <th>DETAIL</th>
+            <th>EDIT</th>
+        </tr>
+        <tbody>
+            <tr *ngFor="let item of row?.data">
+                <td>{{item.id}}</td>
+                <td>{{item.judul}}</td>
+                <td><img src="{{item.foto}}" width="100" loading="eager|lazy"></td>
+                <td><a [routerLink]="['/detail/'+item.id]">Detail</a></td>
+                <td><a [routerLink]="['/editdata/'+item.id]">Edit</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
